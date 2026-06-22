@@ -1,6 +1,7 @@
 import os
 import json
 import urllib.request
+from datetime import datetime, timezone, timedelta
 
 
 def handler(event: dict, context) -> dict:
@@ -29,12 +30,15 @@ def handler(event: dict, context) -> dict:
         }
 
     role_label = "🏢 Брокер" if role == "broker" else "🤝 Партнёр"
+    msk = timezone(timedelta(hours=3))
+    now = datetime.now(msk).strftime("%d.%m.%Y %H:%M МСК")
 
     text = (
         f"{role_label} — новая заявка Broker House\n\n"
         f"👤 Имя: {name}\n"
         f"📧 Email: {email}\n"
-        f"📞 Телефон: {phone}"
+        f"📞 Телефон: {phone}\n"
+        f"🕐 Дата: {now}"
     )
 
     token = os.environ["TELEGRAM_BOT_TOKEN"]
