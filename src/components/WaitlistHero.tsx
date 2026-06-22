@@ -8,8 +8,8 @@ type Role = "broker" | "partner"
 const benefits = [
   {
     icon: "ShieldCheck",
-    title: "Без комиссии для покупателя",
-    text: "Помогаем выбрать лучшую недвижимость Москвы без скрытых наценок и переплат.",
+    title: "Лиды закрепляются за брокером, а не агентством",
+    text: "Каждый клиент остаётся вашим — никаких перехватов и чужих схем.",
   },
   {
     icon: "Building2",
@@ -40,7 +40,11 @@ export function WaitlistHero() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    await fetch("https://functions.poehali.dev/6e316bac-834f-418f-af13-89e3cd1e5520", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone, role }),
+    })
 
     setIsSubmitted(true)
     setIsSubmitting(false)
@@ -224,28 +228,28 @@ export function WaitlistHero() {
           <div className="flex -space-x-3">
             <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-[#0E0E10]">
               <img
-                src="/professional-man-glasses.png"
+                src="https://cdn.poehali.dev/projects/76afbd4a-5957-4990-b482-510f0e8b903f/files/6e912861-5c31-4a30-a4b3-98f55d8294f3.jpg"
                 alt="Брокер"
                 className="h-full w-full object-cover"
               />
             </div>
             <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-[#0E0E10]">
               <img
-                src="/professional-woman-smiling.png"
+                src="https://cdn.poehali.dev/projects/76afbd4a-5957-4990-b482-510f0e8b903f/files/85c53bc6-f577-42a6-89c2-84b9cfdfdf80.jpg"
                 alt="Брокер"
                 className="h-full w-full object-cover"
               />
             </div>
             <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-[#0E0E10]">
               <img
-                src="/professional-person-in-office.jpg"
+                src="https://cdn.poehali.dev/projects/76afbd4a-5957-4990-b482-510f0e8b903f/files/96592f56-7fb9-44fe-b2d8-9d78a23ba65e.jpg"
                 alt="Партнёр"
                 className="h-full w-full object-cover"
               />
             </div>
             <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-[#0E0E10]">
               <img
-                src="/professional-developer-working.png"
+                src="https://cdn.poehali.dev/projects/76afbd4a-5957-4990-b482-510f0e8b903f/files/54952a26-7e0b-4580-bf00-4aa72d9185ad.jpg"
                 alt="Партнёр"
                 className="h-full w-full object-cover"
               />
