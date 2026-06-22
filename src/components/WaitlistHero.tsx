@@ -80,7 +80,7 @@ export function WaitlistHero() {
 
             <h1 className="mb-5 text-balance font-serif text-5xl font-medium leading-[1.05] tracking-tight md:text-6xl">
               Сообщество независимых брокеров
-              <span className="text-[#C9A227]"> новостроек Москвы</span>
+              <span className="text-[#C9A227]"> по новостройкам Москвы</span>
             </h1>
 
             <p className="mb-10 max-w-xl text-pretty text-lg leading-relaxed text-white/60">
